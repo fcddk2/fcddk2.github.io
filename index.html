@@ -6,56 +6,51 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
-
 hr {
-  border: 2px solid white;
+border: 2px solid white;
 }
 
 p {
-  color: black;
-  text-align: center;
+color: black;
+text-align: center;
 }
 table {
-  margin: auto; /* center the table */
-  border-collapse: collapse; /* remove the gaps between cells */
+margin: auto; /* center the table /
+border-collapse: collapse; / remove the gaps between cells */
 }
 
 td {
-  padding: 10px; /* add some space around the cells */
+padding: 10px; /* add some space around the cells */
 }
 
 input {
-  color: black;
+color: black;
 }
 
 select {
-  color: black;
-  background-color: white;
+color: black;
+background-color: white;
 }
 
 button {
-  color: white;
-  background-color: lightblue;
-  opacity: 0.9;
-  border:none;
-  padding: 15px;
-  font-size: large;
+color: white;
+background-color: lightblue;
+opacity: 0.9;
+border:none;
+padding: 15px;
+font-size: large;
 }
 
 body {
-  background-image: linear-gradient(to bottom, rgba(135,206,235), rgba(255,255,255));
-}
-<option value="有血液">有血液</option>
-label {
-  display: inline-block;
-  width: 200px;
+background-image: linear-gradient(to bottom, rgba(135,206,235), rgba(255,255,255));
 }
 </style>
+
 </head>
 <body>
 <h1>肿瘤预测测试</h1>
 <hr>
-<form action="process_data.py" method="post">
+<form>
 <table>
 <tr><td>请输入您的年龄：</td><td><input type="number" id="age" name="age" required></td></tr >
 <tr><td>请输入您的BMI：</td><td><input type="number" id="BMI" name="BMI" required></td></tr >
@@ -69,12 +64,20 @@ label {
 <tr><td>血沉（ESR）（mm/h）：</td><td><input type="number" id="ESR" name="ESR" required></td></tr >
 <tr><td>血糖水平（mmol/L）：</td><td><input type="number" id="Blood sugar" name="Blood sugar" required></td></tr >
 <tr><td>血脂水平（mmol/L）：</td><td><input type="number" id="blood fat" name="blood fat" required></td></tr >
-
-
-<tr><td colspan="2"><button id="submit" style="padding: 20px; font-size: 20px; background-color: skyblue; width: 200px;">提交</button></td></tr >
 </table>
+<div style="text-align: center;">
+  <button id="submit" style="padding: 20px; font-size: 20px; background-color: skyblue;">提交</button>
+  <a href="#" id="result" style="display: none; padding: 20px; font-size: 20px; background-color: lightgreen; text-decoration: none; margin-left: 20px;">查看结果</a>
+</div>
+<script>
+document.getElementById("submit").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+  document.getElementById("result").style.display = "inline";
+});
 
-
-</form>
+document.getElementById("result").addEventListener("click", function() {
+  window.location.href = "https://specializeder.github.io/";
+});
+</script>
 </body>
 </html>
